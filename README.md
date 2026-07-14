@@ -1,31 +1,15 @@
-# Harris Teeter Knowledge Base
+# Store Knowledge Base
 
-A central reference hub for store operations, policies, procedures, training, contacts, and forms — published as a simple website with GitHub Pages.
+A password-protected internal reference site.
 
-## What's here
+The published page is **encrypted end-to-end**: the content is scrambled with AES-256 (a key derived from a shared password via PBKDF2-SHA-256, 250,000 iterations) and only decrypts in the browser after the correct password is entered. Without the password, the page shows only a lock screen and the page source contains nothing but ciphertext.
 
-- **`index.html`** — the knowledge base homepage. It's fully self-contained (all styles and scripts are inline), so nothing else is required for it to render. This is what GitHub Pages serves.
+## What's in this repo
 
-## Live site
+- `index.html` — the encrypted site (lock screen + ciphertext only).
 
-Once GitHub Pages is enabled (Settings → Pages → Deploy from a branch → `main` / root), the site is published at:
+Plaintext content and the underlying source documents are **intentionally kept out of this repository**.
 
-```
-https://<your-username>.github.io/harris-teeter-knowledge-base/
-```
+## Updating the content
 
-Changes pushed to the `main` branch go live automatically within a minute or two.
-
-## Editing
-
-Open `index.html` and edit directly:
-
-- **Replace the placeholder section cards** with your real links, documents, and notes.
-- **Add a new card** by copying an existing `<a class="card">…</a>` block.
-- The `data-keywords` attribute on each card feeds the search box — add relevant terms there so sections are easy to find.
-
-No build step, no dependencies — edit the file, commit, and it's live.
-
-## Notes
-
-- This repository is **public**, which is what lets GitHub Pages publish for free. Keep sensitive or internal-only details out of it.
+The content is authored from an internal source document, then encrypted before publishing. To change it: update the source, re-run the offline encryption tool to produce a new `index.html`, and commit it. Publishing the site keeps working automatically.
